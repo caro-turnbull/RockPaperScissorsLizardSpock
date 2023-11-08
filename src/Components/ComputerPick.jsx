@@ -1,14 +1,14 @@
 import { useState, useContext } from 'react';
-import DataProvider from '../Providers/dataProvider';
+import { DataContext } from '../Providers/dataProvider';
 
 
 function CompPick() {
-  const compPick = useContext(DataProvider);
+  const { compChoice } = useContext(DataContext);
 
   return (
     <>
       <h3>The Computer picks:</h3>
-      <p>{compPick}</p>
+      <p>{compChoice}</p>
       <h2>Alice is dynamite!</h2>
     </>
   );

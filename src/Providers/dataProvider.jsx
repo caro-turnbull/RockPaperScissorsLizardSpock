@@ -6,15 +6,15 @@ export const DataContext = createContext();
 export default function DataProvider(props) {
 
   //states
-  const [compPick, setCompPick] = useState('None');
-  const [userPick, setUserPick] = useState('Rock');
+  const [compChoice, setcompChoice] = useState('None');
+  const [userChoice, setUserChoice] = useState('Rock');
   const [game, setGame] = useState(options5);
   const [result, setResult] = useState('');
   console.log("game in the provider", game);
 
   const providerData = {
-    compPick,
-    userPick,
+    compChoice,
+    userChoice,
     game,
     result
   };
