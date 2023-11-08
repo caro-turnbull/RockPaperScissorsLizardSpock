@@ -30,4 +30,4 @@ export const options5 = [
   }
 ];
 
-// export default { options3, options5 };
+export default { options3, options5 };

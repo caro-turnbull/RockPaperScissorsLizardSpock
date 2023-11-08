@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import UserPick from './Components/UserPick';
 import './App.css';
+import NavBar from './Components/NavBar';
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>We're going to make Rock Paper Scissors Lizard Spock</h1>
+      <NavBar />
+      <UserPick />
 
-      <img src="../public/hands/fist.svg" width={200} alt="no img" />
     </>
   );
 }
