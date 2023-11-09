@@ -10,13 +10,23 @@ export default function DataProvider(props) {
   const [userChoice, setUserChoice] = useState('Rock');
   const [game, setGame] = useState(options5);
   const [result, setResult] = useState('');
-  console.log("game in the provider", game);
+
+  function userClick(name) {
+    setUserChoice(name);
+    console.log("setting user pick to:", userChoice);
+    compChooses;
+  };
+
+  function compChooses() {
+    //random pick here
+  };
 
   const providerData = {
     compChoice,
     userChoice,
     game,
-    result
+    result,
+    userClick
   };
 
   return (

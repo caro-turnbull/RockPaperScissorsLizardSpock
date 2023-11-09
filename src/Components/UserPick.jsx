@@ -4,15 +4,15 @@ import { DataContext } from '../Providers/dataProvider';
 
 
 function UserPick() {
-  const { game } = useContext(DataContext);
+  const { game, userClick } = useContext(DataContext);
   return (
     <>
       <h3>Player picks:</h3>
 
       {game.map((choice) => {
-        console.log("in the user component", choice.name);
+        // console.log("in the user component", choice.name);
         return (
-          <button key={choice.name} >
+          <button key={choice.name} onClick={() => userClick(choice.name)} >
             <p>{choice.name}</p>
             <img src={choice.img} alt='its broken' height={125} width={125} />
           </button>
