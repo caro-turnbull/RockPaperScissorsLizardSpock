@@ -25,12 +25,18 @@ export default function DataProvider(props) {
     //sets compChoice state to the entire object 
   };
 
+  function chooseGame(number) {
+    setGame(`options${number}`);
+    console.log("setting game to", number, game);
+  }
+
   const providerData = {
     compChoice,
     userChoice,
     game,
     result,
-    userClick
+    userClick,
+    chooseGame,
   };
 
   return (
