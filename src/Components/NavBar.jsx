@@ -1,6 +1,5 @@
 import { useState, useContext } from 'react';
 import { DataContext } from '../Providers/dataProvider';
-import { options3 } from "../data";
 
 function NavBar() {
   const { chooseGame } = useContext(DataContext);

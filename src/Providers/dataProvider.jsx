@@ -15,6 +15,7 @@ export default function DataProvider(props) {
     setUserChoice(name);
     //set to just the name, not whole object??
     console.log("setting user pick to:", userChoice);
+    console.log("game", game);
     compChooses(game.length);
   };
 
@@ -26,8 +27,10 @@ export default function DataProvider(props) {
   };
 
   function chooseGame(number) {
-    setGame(`options${number}`);
+    setGame(number === 3 ? options3 : options5);
+    // setGame(`options${number}`);
     console.log("setting game to", number, game);
+    console.log("whats this game look like", game);
   }
 
   const providerData = {
