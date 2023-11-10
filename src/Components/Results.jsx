@@ -8,8 +8,10 @@ function Results() {
   let resultHeader;
   if (result === 'winner') {
     resultHeader = <h1>You Win! 🎉</h1>;
-  } else {
+  } else if (result === 'looser') {
     resultHeader = <h1>You Loose. 😩</h1>;
+  } else {
+    resultHeader = <h1>Please play again. </h1>;
   }
 
   return (

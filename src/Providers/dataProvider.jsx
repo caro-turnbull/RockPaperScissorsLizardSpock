@@ -11,12 +11,21 @@ export default function DataProvider(props) {
   const [game, setGame] = useState(options5);
   const [result, setResult] = useState('');
 
+  function chooseGame(number) {
+    setGame(number === 3 ? options3 : options5);
+    // setGame(`options${number}`);
+    console.log("setting game to", number, game);
+    console.log("whats this game look like", game);
+  }
+
   function userClick(name) {
     setUserChoice(name);
     //set to just the name, not whole object??
-    console.log("setting user pick to:", userChoice);
-    console.log("game", game);
+    // console.log("setting user pick to:", userChoice);
+    // console.log("game", game);
     compChooses(game.length);
+    getResults(userChoice, compChoice.name);
+    console.log("are we gertting results?", result);
   };
 
   function compChooses(max) {
@@ -26,12 +35,29 @@ export default function DataProvider(props) {
     //sets compChoice state to the entire object 
   };
 
-  function chooseGame(number) {
-    setGame(number === 3 ? options3 : options5);
-    // setGame(`options${number}`);
-    console.log("setting game to", number, game);
-    console.log("whats this game look like", game);
-  }
+
+  //why is this function declaration different?
+  const getResults = (userChoice, compChoice) => {
+    console.log("are we getting the states?", userChoice, compChoice);
+    switch (userChoice + compChoice) {
+      case "RockScissors":
+      case "ScissorsPaper":
+      case "PaperRock":
+        setResult('winner');
+        console.log("arethereanycases", result);
+        break;
+      case "RockPaper":
+      case "ScissorsRock":
+      case "PaperScissors":
+        setResult('looser');
+        console.log("arethereanycases", result);
+        break;
+      default:
+        setResult('');
+        break;
+      //lowercase winner/looser
+    }
+  };
 
   const providerData = {
     compChoice,
