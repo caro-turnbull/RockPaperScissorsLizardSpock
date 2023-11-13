@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { options3, options5 } from "../data";
 
 export const DataContext = createContext();
@@ -20,13 +20,21 @@ export default function DataProvider(props) {
 
   function userClick(name) {
     setUserChoice(name);
-    //set to just the name, not whole object??
-    // console.log("setting user pick to:", userChoice);
-    // console.log("game", game);
-    compChooses(game.length);
-    getResults(userChoice, compChoice.name);
-    console.log("are we gertting results?", result);
+    // compChooses(game.length);
+    // getResults(userChoice, compChoice.name);
+    // console.log("are we gertting results?", result);
   };
+
+  //will only run after userClick
+  useEffect(() => {
+    compChooses(game.length);
+  });
+
+  //will only run after comChooses
+  useEffect(() => {
+    getResults(userChoice, compChoice.name);
+  });
+
 
   function compChooses(max) {
     let randomIndex = Math.floor(Math.random() * max);
