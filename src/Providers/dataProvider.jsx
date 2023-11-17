@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { options3, options5 } from "../data";
+import Results from "../Components/Results";
 
 export const DataContext = createContext();
 
@@ -20,20 +21,23 @@ export default function DataProvider(props) {
 
   function userClick(name) {
     setUserChoice(name);
-    // compChooses(game.length);
+    console.log("set user choic in the click");
+    compChooses(game.length);
     // getResults(userChoice, compChoice.name);
     // console.log("are we gertting results?", result);
   };
 
-  //will only run after userClick
-  useEffect(() => {
-    compChooses(game.length);
-  });
+  // //will only run after userClick
+  // useEffect(() => {
+  //   compChooses(game.length);
+  //   console.log("run the compCHoice UseEffect", compChoice);
+  // }, [userChoice]);
 
   //will only run after comChooses
   useEffect(() => {
     getResults(userChoice, compChoice.name);
-  });
+    console.log("run the results UseEffect", result);
+  }, [userChoice, compChoice.name]);
 
 
   function compChooses(max) {
@@ -52,13 +56,13 @@ export default function DataProvider(props) {
       case "ScissorsPaper":
       case "PaperRock":
         setResult('winner');
-        console.log("arethereanycases", result);
+        console.log("results switch case run", result);
         break;
       case "RockPaper":
       case "ScissorsRock":
       case "PaperScissors":
         setResult('looser');
-        console.log("arethereanycases", result);
+        console.log("results switch case run", result);
         break;
       default:
         setResult('');
