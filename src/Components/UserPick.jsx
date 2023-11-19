@@ -1,7 +1,9 @@
 import { useState, useContext } from 'react';
-import { options3, options5 } from '../data';
+// import { options3, options5 } from '../data';
+import HandsButton from './HandsButton';
 import { DataContext } from '../Providers/dataProvider';
 
+import { Button, Container, Stack } from '@mui/material';
 
 function UserPick() {
   const { game, userClick } = useContext(DataContext);
@@ -9,16 +11,21 @@ function UserPick() {
     <>
       <h3>Player picks:</h3>
 
-      {game.map((choice) => {
-        // console.log("in the user component", choice.name);
-        return (
-          <button key={choice.name} onClick={() => userClick(choice.name)} >
-            <p>{choice.name}</p>
-            <img src={choice.img} alt='its broken' height={125} width={125} />
-          </button>
-        );
-      })
-      }
+      <Container>
+        <Stack spacing={3} direction="row">
+
+          {game.map((choice) => {
+            return (
+              <HandsButton
+                key={choice.name}
+                choice={choice}
+              />
+
+            );
+          })
+          }
+        </Stack>
+      </Container>
 
     </>
   );

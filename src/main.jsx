@@ -2,15 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import DataProvider from './Providers/dataProvider.jsx';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
 // import ResultProvider from './Providers/resultsProvider.jsx';
-import './index.css';
+// import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <DataProvider>
-      {/* <ResultProvider> */}
-      <App />
-      {/* </ResultProvider> */}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {/* <ResultProvider> */}
+        <App />
+        {/* </ResultProvider> */}
+      </ThemeProvider>
     </DataProvider>
   </React.StrictMode>
 );

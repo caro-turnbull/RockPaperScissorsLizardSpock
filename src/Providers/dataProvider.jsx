@@ -36,7 +36,7 @@ export default function DataProvider(props) {
   //will only run after comChooses
   useEffect(() => {
     getResults(userChoice, compChoice.name);
-    console.log("run the results UseEffect", result);
+    console.log("run the results UseEffect", result.reason);
   }, [userChoice, compChoice.name]);
 
 
@@ -52,22 +52,42 @@ export default function DataProvider(props) {
   const getResults = (userChoice, compChoice) => {
     console.log("are we getting the states?", userChoice, compChoice);
     switch (userChoice + compChoice) {
+      //winners
       case "RockScissors":
+        setResult({ type: 'winner', reason: `Rock smashes Scissors` });
+        break;
       case "ScissorsPaper":
+        setResult({ type: 'winner', reason: `Scissors cut Paper` });
+        break;
       case "PaperRock":
-        setResult('winner');
-        console.log("results switch case run", result);
+        setResult({ type: 'winner', reason: `Paper covers Rock` });
         break;
+      // console.log("results switch case run", result);
+      //loosers
       case "RockPaper":
-      case "ScissorsRock":
-      case "PaperScissors":
-        setResult('looser');
-        console.log("results switch case run", result);
+        setResult({ type: 'looser', reason: `Paper covers Rock` });
         break;
+      case "ScissorsRock":
+        setResult({ type: 'looser', reason: `Rock smashes Scissors` });
+        break;
+      case "PaperScissors":
+        setResult({ type: 'looser', reason: `Scissors cut Paper` });
+        break;
+      // setResult('looser');
+      // console.log("results switch case run", result);
+
+      //ties
+      case "RockRock":
+      case "ScissorsScissors":
+      case "PaperPaper":
+        setResults({ type: 'tie', reason: 'Its a Tie' });
+        break;
+
       default:
         setResult('');
         break;
-      //lowercase winner/looser
+
+      //lowercase winner/looser/tie
     }
   };
 

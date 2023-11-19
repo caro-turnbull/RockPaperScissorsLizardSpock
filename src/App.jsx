@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Grid } from '@mui/material';
+import { Grid, Paper } from '@mui/material';
 
 import './App.css';
 import UserPick from './Components/UserPick';
@@ -21,12 +21,13 @@ function App() {
   return (
     <>
       <NavBar />
-      <Grid container>
+      <Grid container >
+        {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}> */}
 
-        <Grid item>
+        <Grid item xs={12} sm={9}>
           <UserPick />
         </Grid>
-        <Grid item>
+        <Grid item xs={12} sm={3}>
           <CompPick />
         </Grid>
 

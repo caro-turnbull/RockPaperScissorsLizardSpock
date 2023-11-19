@@ -1,22 +1,30 @@
 import { useState, useContext } from 'react';
 import { DataContext } from '../Providers/dataProvider';
+import { AppBar, Typography } from '@mui/material';
 
 function Results() {
   const { result } = useContext(DataContext);
 
 
   let resultHeader;
-  if (result === 'winner') {
-    resultHeader = <h1>You Win! 🎉</h1>;
+  if (result.type === 'winner') {
+    resultHeader = "You Win! 🎉";
   } else if (result === 'looser') {
-    resultHeader = <h1>You Loose. 😩</h1>;
+    resultHeader = "You Loose. 😩";
+  } else if (result === 'tie') {
+    resultHeader = "Its a tie. 👔";
   } else {
-    resultHeader = <h1>Please play again. </h1>;
+    resultHeader = "Please play again.";
   }
 
   return (
     <>
-      {resultHeader}
+      <AppBar position="fixed" color="primary" sx={{ top: 'auto', bottom: 0 }}>
+        <Typography>
+          {resultHeader}
+          {result.reason}
+        </Typography>
+      </ AppBar>
     </>
 
   );
