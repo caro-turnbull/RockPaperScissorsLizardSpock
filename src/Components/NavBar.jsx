@@ -19,18 +19,21 @@ function NavBar() {
   return (
     <>
       <AppBar >
-        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+        <Stack direction="row"  alignItems="center" sx={{ padding:'1rem'}}>
 
-        <Typography>
+        <Typography align='left'>
           Caroline's Rock Paper Scissors Lizard Spock
         </Typography>
-        <Box>
-          <Chip color="secondary" label='3' onClick={() => chooseGame(3)} />
-          <Chip color="secondary" label='5' onClick={() => chooseGame(5)} />
+        <Box >
+
+          <Box>
+            <Chip color="secondary" label='3' onClick={() => chooseGame(3)} />
+            <Chip color="secondary" label='5' onClick={() => chooseGame(5)} />
+          </Box>
+          <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
+            {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
         </Box>
-        <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
-          {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-        </IconButton>
         </Stack>
 
       </AppBar>

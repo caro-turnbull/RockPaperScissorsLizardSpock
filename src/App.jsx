@@ -22,17 +22,15 @@ function App() {
 
   return (
     <>
-      <NavBar />
-     <Container sx={{margin: "2em", padding: "2em"}}>
-
-        <Stack spacing={4}>
-<Box><UserPick /></Box>
-<Box><CompPick /></Box>
-<Box><Results /></Box>
-</Stack>
+    <NavBar />
+    <Container sx={{margin: "4em", padding: "2em"}}>
+      <Stack spacing={4}>
+        <Box><UserPick /></Box>
+        <Box><CompPick /></Box>
+        <Box><Results /></Box>
+      </Stack>
      </Container>
-      
-      
+    
     </>
   );
 }
