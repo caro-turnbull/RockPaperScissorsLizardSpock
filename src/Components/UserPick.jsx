@@ -12,7 +12,7 @@ function UserPick() {
       <h3>Player picks:</h3>
 
       <Container>
-        <Stack spacing={3} direction="row">
+        <Stack spacing={3} direction="row" justifyContent="center" alignItems="center">
 
           {game.map((choice) => {
             return (

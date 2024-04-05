@@ -9,11 +9,11 @@ export default function DataProvider(props) {
   //states
   const [compChoice, setCompChoice] = useState('None');
   const [userChoice, setUserChoice] = useState('Rock');
-  const [game, setGame] = useState(options5);
+  const [game, setGame] = useState(options3);
   const [result, setResult] = useState('');
 
   function chooseGame(number) {
-    setGame(number === 3 ? options3 : options5);
+    setGame(number === 5 ? options5 : options3);
     // setGame(`options${number}`);
     console.log("setting game to", number, game);
     console.log("whats this game look like", game);
@@ -40,7 +40,7 @@ export default function DataProvider(props) {
   }, [userChoice, compChoice.name]);
 
 
-  function compChooses(max) {
+  const compChooses = (max) => {
     let randomIndex = Math.floor(Math.random() * max);
     console.log("comp pick", game[randomIndex].name);
     setCompChoice(game[randomIndex]);
@@ -51,6 +51,7 @@ export default function DataProvider(props) {
   //why is this function declaration different?
   const getResults = (userChoice, compChoice) => {
     console.log("are we getting the states?", userChoice, compChoice);
+    console.log("CASE", userChoice + compChoice)
     switch (userChoice + compChoice) {
       //winners
       case "RockScissors":
@@ -65,13 +66,13 @@ export default function DataProvider(props) {
       // console.log("results switch case run", result);
       //loosers
       case "RockPaper":
-        setResult({ type: 'looser', reason: `Paper covers Rock` });
+        setResult({ type: 'loser', reason: `Paper covers Rock` });
         break;
       case "ScissorsRock":
-        setResult({ type: 'looser', reason: `Rock smashes Scissors` });
+        setResult({ type: 'loser', reason: `Rock smashes Scissors` });
         break;
       case "PaperScissors":
-        setResult({ type: 'looser', reason: `Scissors cut Paper` });
+        setResult({ type: 'loser', reason: `Scissors cut Paper` });
         break;
       // setResult('looser');
       // console.log("results switch case run", result);
@@ -80,7 +81,7 @@ export default function DataProvider(props) {
       case "RockRock":
       case "ScissorsScissors":
       case "PaperPaper":
-        setResults({ type: 'tie', reason: 'Its a Tie' });
+        setResult({ type: 'tie', reason: 'Its a Tie' });
         break;
 
       default:

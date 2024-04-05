@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { Grid, Paper } from '@mui/material';
+import { Stack, Box, Container } from '@mui/material';
 
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import UserPick from './Components/UserPick';
 import NavBar from './Components/NavBar';
 import CompPick from './Components/ComputerPick';
@@ -21,18 +23,16 @@ function App() {
   return (
     <>
       <NavBar />
-      <Grid container >
-        {/* <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}> */}
+     <Container sx={{margin: "2em", padding: "2em"}}>
 
-        <Grid item xs={12} sm={9}>
-          <UserPick />
-        </Grid>
-        <Grid item xs={12} sm={3}>
-          <CompPick />
-        </Grid>
-
-      </Grid>
-      <Results />
+        <Stack spacing={4}>
+<Box><UserPick /></Box>
+<Box><CompPick /></Box>
+<Box><Results /></Box>
+</Stack>
+     </Container>
+      
+      
     </>
   );
 }

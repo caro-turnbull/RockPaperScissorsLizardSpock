@@ -1,7 +1,7 @@
 import { useState, useContext, createContext } from 'react';
 import IconButton from '@mui/material/IconButton';
 import { DataContext } from '../Providers/dataProvider';
-import { AppBar, Box, Chip, Typography } from '@mui/material';
+import { AppBar, Box, Chip, Stack, Typography } from '@mui/material';
 import useTheme from '@mui/material/styles/useTheme';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
@@ -19,6 +19,8 @@ function NavBar() {
   return (
     <>
       <AppBar >
+        <Stack direction="row" justifyContent="center" alignItems="center" spacing={2}>
+
         <Typography>
           Caroline's Rock Paper Scissors Lizard Spock
         </Typography>
@@ -29,6 +31,7 @@ function NavBar() {
         <IconButton sx={{ ml: 1 }} onClick={colorMode.toggleColorMode} color="inherit">
           {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
         </IconButton>
+        </Stack>
 
       </AppBar>
     </>
