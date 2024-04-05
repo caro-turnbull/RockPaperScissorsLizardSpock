@@ -17,10 +17,10 @@ function Results() {
 
   return (
     <>
-      {resultHeader}
+      <h3>{resultHeader} </h3>
+      <br/>
       {result.reason}
     </>
-
   );
 }
 export default Results;
