@@ -63,7 +63,29 @@ export default function DataProvider(props) {
       case "PaperRock":
         setResult({ type: 'winner', reason: `Paper covers Rock` });
         break;
-      // console.log("results switch case run", result);
+      case"LizardPaper":
+        setResult({ type: 'winner', reason: "Lizard eats Paper"});
+        break;
+      case "ScissorsLizard":
+        setResult({ type: 'winner', reason: `Scissors decapitates Lizard`});
+        break;
+      case "RockLizard":
+        setResult({ type: 'winner', reason: `Rock smashes Lizard`});
+        break;
+      case "LizardSpock":
+        setResult({ type: 'winner', reason: `Lizard poisons Spock`});
+        break;
+      case "SpockPaper":
+        setResult({ type: 'winner', reason: `Paper disproves Spock`});
+        break;
+      case "SpockRock":
+        setResult({ type: 'winner', reason: `Spock vaporizes Rock`});
+        break;
+      case "SpockScissors":
+        setResult({ type: 'winner', reason: `Spock smashes Scissors`});
+        break;
+
+
       //loosers
       case "RockPaper":
         setResult({ type: 'loser', reason: `Paper covers Rock` });
@@ -74,13 +96,34 @@ export default function DataProvider(props) {
       case "PaperScissors":
         setResult({ type: 'loser', reason: `Scissors cut Paper` });
         break;
-      // setResult('looser');
-      // console.log("results switch case run", result);
+      case "PaperSpock":
+        setResult({ type: 'loser', reason: `Paper disproves Spock`});
+        break;
+      case "LizardScissors":
+        setResult({ type: 'loser', reason: `Scissors decapitates Lizard`});
+        break;
+      case"PaperLizard":
+        setResult({ type: 'loser', reason: `Lizard eats Paper`});
+        break;
+      case "LizardRock":
+        setResult({ type: 'loser', reason: `Rock smashes Lizard`});
+        break;
+      case "SpockLizard":
+        setResult({ type: 'loser', reason: `Lizard poisons Spock`});
+        break;
+      case "RockSpock":
+        setResult({ type: 'loser', reason: `Spock vaporizes Rock`});
+        break;
+      case "ScissorsSpock":
+        setResult({ type: 'loser', reason: `Spock smashes Scissors`});
+        break;
 
       //ties
       case "RockRock":
       case "ScissorsScissors":
       case "PaperPaper":
+      case "LizardLizard":
+      case "SpockSpock":
         setResult({ type: 'tie', reason: 'Its a Tie' });
         break;
 
