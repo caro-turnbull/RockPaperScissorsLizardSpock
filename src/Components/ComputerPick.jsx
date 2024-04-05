@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { DataContext } from '../Providers/dataProvider';
-import { Paper } from '@mui/material';
+
 
 
 function CompPick() {
@@ -14,10 +14,10 @@ function CompPick() {
   return (
     <>
       <h3>The Computer picks:</h3>
-      <Paper> 
+      <div> 
         <p>{compChoice.name}</p>
      {includeImage} 
-     </Paper> 
+     </div> 
     </>
   );
 }
