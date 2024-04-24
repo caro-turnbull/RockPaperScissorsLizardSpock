@@ -4,7 +4,7 @@ import { DataContext } from '../Providers/dataProvider';
 const HandsButton = (props) => {
   const { game, userClick } = useContext(DataContext);
   return (
-    <button
+    <button 
       onClick={() => userClick(props.choice.name)}
     >
       <p>{props.choice.name}</p>

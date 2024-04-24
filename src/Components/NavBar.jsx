@@ -17,7 +17,8 @@ function NavBar() {
 
   return (
     <>
-     Caroline's Rock Paper Scissors Lizard Spock
+    <img src='hmmm.png' width='80' alt='CPT'/>
+     <p>Caroline's Rock Paper Scissors Lizard Spock</p>
       <div>
         <button onClick={() => chooseGame(3)}>3</button>
         <button onClick={() => chooseGame(5)}>5</button>

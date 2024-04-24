@@ -11,6 +11,7 @@ export default function DataProvider(props) {
   const [userChoice, setUserChoice] = useState('Rock');
   const [game, setGame] = useState(options3);
   const [result, setResult] = useState('');
+  const [loading, setLoading] = useState('');
 
   function chooseGame(number) {
     setGame(number === 5 ? options5 : options3);
@@ -19,12 +20,17 @@ export default function DataProvider(props) {
     console.log("whats this game look like", game);
   }
 
-  function userClick(name) {
-    setUserChoice(name);
-    console.log("set user choic in the click");
-    compChooses(game.length);
-    // getResults(userChoice, compChoice.name);
-    // console.log("are we gertting results?", result);
+  const userClick = (name) => {
+    // console.log("loading?", loading)
+    // setLoading(true);
+    // console.log("loading true", loading)
+    // setTimeout(() => {
+    //   setLoading(false);
+      // console.log("loading false", loading)
+      setUserChoice(name);
+      console.log("set user choic in the click");
+      compChooses(game.length);
+    // }, 1200); 
   };
 
   // //will only run after userClick

@@ -17,7 +17,7 @@ function Results() {
 
   return (
     <>
-      <h3>{resultHeader} </h3>
+      <h1>{resultHeader} </h1>
       <br/>
       {result.reason}
     </>

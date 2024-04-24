@@ -1,10 +1,12 @@
 import { useState, useContext } from 'react';
 import { DataContext } from '../Providers/dataProvider';
+import ClipLoader from "react-spinners/ClipLoader";
+import { red } from '@mui/material/colors';
 
 
 
 function CompPick() {
-  const { compChoice } = useContext(DataContext);
+  const { compChoice, loading } = useContext(DataContext);
 
   let includeImage;
   if (compChoice !== 'None') {
@@ -14,11 +16,29 @@ function CompPick() {
   return (
     <>
       <h3>The Computer picks:</h3>
+      {loading ? (<>
+        <ClipLoader
+        color={red}
+        loading={loading}
+        // cssOverride={override}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      /> 
+      <div>load</div>
+      </>
+      ) : (
       <div> 
         <p>{compChoice.name}</p>
-     {includeImage} 
-     </div> 
+        {includeImage} 
+      </div> 
+      )}
+     {/* <div className="sweet-loading"> */}
+      {/* <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
+      <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" /> */}
+
+      
     </>
-  );
+  )
 }
 export default CompPick;
